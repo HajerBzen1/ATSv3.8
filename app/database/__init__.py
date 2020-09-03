@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash
 
 
 def get_database():
-    DATABASE_URL = 'postgres://nbvzbasspoitxt:56f71a290346854ee5600d1346a8b234134a5e9498df0fa8d25663b9f12aeaf8@ec2-54-235-192-146.compute-1.amazonaws.com:5432/da8enrbnct70fm'
+    DATABASE_URL = 'postgres://qesfzxagnordrm:cd4f2f35d6ba450110994cbba6a3b1b65ad3e60469863a219c4c5ee73a78c2ef@ec2-34-200-15-192.compute-1.amazonaws.com:5432/das4a3akik1cvg'
     if 'database' not in g:
         g.database = psycopg2.connect(DATABASE_URL, sslmode='require')
     # db_name = "ats_db"
