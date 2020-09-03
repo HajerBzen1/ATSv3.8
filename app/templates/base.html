@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %} - ATS</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </head>
+
+    <body dir="rtl" lang="ar">
+        <nav id="nav_top">
+            <h1>ATS - تلخيص القرارات القانونية -</h1>
+            {% if g.admin %}
+                <p id="p_username">{{ g.admin[1] }}</p>
+                <div id="div_main">
+                    <a class="a_button" href="{{ url_for('auth.logout') }}"
+                       title="اضغط لتسجيل الخروج"><p class="p_button">خروج</p></a>
+                {% block nav_main %}{% endblock %}
+                </div>
+            {% endif %}
+        </nav>
+
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+
+        <section id="section_base">
+            {% block header %}{% endblock%}
+
+            {% block content %}{% endblock %}
+        </section>
+    </body>
+</html>

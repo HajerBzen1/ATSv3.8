@@ -1,0 +1,41 @@
+{% extends 'base_ats.html' %}
+
+{% block nav_main %}
+    <a class="a_button" href="{{ url_for('launcher.launch') }}">
+        <p class="p_button" title="اضغط لعرض التلاخيص المحفوظة">عودة</p></a>
+    <a class="a_button" href="{{ url_for('expressions.expressions') }}">
+        <p class="p_button" title="اضغط لتعديل عبارات التقسيم">عبارات التقسيم</p></a>
+{% endblock %}
+
+{% block title %}تلخيص{% endblock %}
+{% block select_onchange %}display_new_summary(){% endblock %}
+{% block select_title %}اضغط لعرض ملف{% endblock %}
+{% block delete_title %}اضغط لمسح التلخيص المعروض{% endblock %}
+{% block delete_onclick %}delete_new_summary(){% endblock %}
+
+{% block others %}
+    {% if new %}
+    <input type="file" name="file" id="input_file" class="input" multiple onchange="get_filename()"/>
+    <label title="اضغط لاختيار ملفات" class="upload p_button a_button" for="input_file">اختيار ملف</label>
+    {% endif %}
+{% endblock %}
+
+{% block nav_second %}
+    <input type="submit" class="a_button p_button" id="save_submit" value="حفظ"
+           onclick="save_summaries()" title="اضغط لحفظ التلاخيص الجديدة">
+    <input type="submit" class="a_button p_button" id="sum_submit" value="تلخيص"
+           onclick="summarize()" title="اضغط لبدء التلخيص">
+    <ul>
+        <li>
+            <input type="radio" id="jumla" name="unity" value="جملة"
+                   {% if threshold[1]=="جملة" %}checked{% endif %}>
+            <label for="jumla">جملة</label>
+        </li>
+        <li>
+            <input type="radio" id="percent" name="unity" value="%"
+                   {% if threshold[1]=="%" %}checked{% endif %}>
+            <label for="percent">%</label>
+        </li>
+    </ul>
+    <input type="number" dir="ltr" name="threshold" value="{{ threshold[0] }}" min="1" title="حدد نسبة التلخيص">
+{% endblock %}

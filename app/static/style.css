@@ -1,0 +1,360 @@
+body{
+    margin: 5px 20px;
+    height: 685px;
+}
+#nav_top{
+    background-color: #eee;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+h1{
+    margin: 5px;
+    color: #1296f3;
+    flex: 2;
+}
+
+#div_main{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 443px;
+}
+
+.a_button{
+    color: white;
+    text-decoration: none;
+}
+
+#p_username{
+    margin: 0px;
+    padding: 10px 5px;
+    text-align: end;
+    flex: 1;
+}
+
+.p_button{
+    width: 85px;
+    margin: 5px 10px 0px 5px;
+    padding: 5px;
+    background-color: #1296f3;
+    text-align: center;
+    border-radius: 5px;
+    border: 0px;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.flash{
+    color: red;
+    font-size: medium;
+    margin: 5px calc(50% - 160px);
+    text-align: center;
+}
+
+#section_base{
+    background-color: #eee;
+    margin: 5px 0px;
+}
+
+header, #content{
+    padding-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+h2{
+    margin: 0px;
+    color: #1296f3;
+    width: 150px;
+    padding: 5px 0px;
+    margin-right: 5px;
+}
+
+.div_form{
+    width: 330px;
+    margin: 0px calc(50% - 165px);
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#note{
+    text-align: center;
+    margin-top: 0px;
+}
+
+#login_form span{
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0px;
+    height: 28px;
+}
+
+#login_form span label{
+    width: 115px;
+    color: #1296f3;
+    font-size: medium;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#login_form span input{
+    width: calc(100% - 115px);
+    border: solid 1px #1296f3;
+    border-radius: 5px;
+    padding: 3px;
+    height: 19px;
+}
+
+#btn_login{
+    color: white;
+    border: 0px;
+    margin: 0px;
+    margin-right: calc(100% - 95px);
+}
+
+.select_form{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 5px;
+    flex-direction: row;
+    min-width: 438px;
+    width: calc(100% - 160px);
+}
+
+#filename{
+    width: max(calc(50% - 169px), 213px);
+    margin: 5px 0px;
+    border: solid 1px #1296f3;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 5px;
+    height: 30px;
+}
+
+input[type="submit"]{
+    height: 29px;
+    width: 95px;
+}
+
+#select_modify{}
+
+.nav_second{}
+
+#original_box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: max(460px, 50%);
+    margin-left: 5px;
+    padding: 0px 5px;
+}
+
+#original_text{
+    border: 1px solid #1296f3;
+    border-radius: 5px;
+    height: 535px;
+    width: 100%;
+    padding: 5px 0px;
+    overflow: auto;
+}
+
+#original_text p{
+    margin: 0px 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#summary{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: max(460px, calc(50% - 20px));
+    margin-left: 5px;
+}
+
+#ind_sum{
+    overflow: auto;
+    height: 230px;
+    border: 1px solid #1296f3;
+    border-radius: 5px;
+}
+
+#ind_table{
+}
+
+#ind_table tr{}
+
+#ind_table th{
+    text-align: start;
+    vertical-align: initial;
+    width: 90px;
+    padding-top: 3px;
+    padding-right: 5px;
+}
+
+#ind_table td{
+    vertical-align: baseline;
+    padding: 3px 0px;
+}
+
+#ind_table td p{
+    margin: 0px;
+}
+
+#inf_sum{
+    border: 1px solid #1296f3;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: calc(100% - 8px);
+    overflow: auto;
+    padding-right: 5px;
+    height: 308px;
+    font-size: medium;
+}
+
+#inf_sum p{
+    margin: 0px;
+}
+#go_to_image{
+    width: 25px;
+}
+
+h3{
+    margin: 0px;
+    color: #1296f3;
+    width: 100px;
+    padding: 5px 0px;
+    margin-right: 10px;
+}
+
+#input_file{
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+}
+
+.input{}
+
+#sum_submit{}
+
+li input{
+    margin: 0px;
+}
+
+li label{}
+
+input[type="number"]{
+    height: 25px;
+    width: 40px;
+    margin: 5px;
+    padding-right: 5px;
+    border: solid 1px #1296f3;
+    border-radius: 5px;
+}
+
+.upload{
+    height: 18px;
+}
+
+ul{
+    margin: 4px 5px 0px 10px;
+    list-style: none;
+    padding: 0px;
+    font-size: small;
+}
+
+li{}
+
+#row_box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#param_form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.text_box input[type="button"]{
+    width: 26px;
+    height: 26px;
+}
+
+.text_box input[type="text"]{
+    width: calc(100% - 54px);
+    border: solid 1px #1296f3;
+    border-radius: 5px;
+    padding: 3px;
+    height: 19px;
+    margin: 0px;
+    margin-top: 5px;
+}
+
+.text_box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#ok_btn{
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    border: 0;
+    padding: 0px;
+}
+
+#filename option{
+    direction: ltr;
+}
+
+#input_content{
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    border: none;
+    resize: none;
+    background: #eee;
+    font-family: arial;
+    font-size: medium;
+    width: calc(100% - 5px);
+}
+
+hr{
+    margin: 10px;
+}
+
+#text{
+    width: calc(100% - 108px);
+    border: solid 1px #1296f3;
+    border-radius: 5px;
+    padding: 3px;
+    height: 19px;
+}
+
+#btn_search{
+    color: white;
+    border: 0px;
+    margin: 0px;
+    margin-right: 5px;
+}
+
+#search_form{
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0px;
+    height: 28px;
+}
+
+.search_div{
+    width: 330px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>بحث - ATS</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </head>
+
+    <body dir="rtl" lang="ar">
+        <nav id="nav_top">
+            <h1>ATS - تلخيص القرارات القانونية -</h1>
+            <div class="search_div">
+                <form action="{{ url_for('query_based.search') }}" method="post" id="search_form">
+                    <input type="text" name="text" id="text" title="أدخل كلمات للبحث" value="{{query}}">
+                    <input type="submit" class="p_button" id="btn_search" value="بحث" title="اضغط لبدأ البحث">
+                </form>
+            </div>
+            <div id="div_main">
+                <a class="a_button" href="{{ url_for('auth.login') }}"
+                   title="اضغط لتسجيل الدخول"><p class="p_button">تسجيل الدخول</p></a>
+            </div>
+        </nav>
+
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+
+        <section id="section_base">
+            {% for summary in summaries %}
+                <p> {{ summary }} </p><hr>
+            {% endfor %}
+        </section>
+    </body>
+</html>

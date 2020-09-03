@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block nav_main %}
+<a class="a_button" href="{{ url_for('launcher.launch') }}" title="اضغط لعرض التلاخيص المحفوظة">
+    <p class="p_button">ملخصات</p>
+</a>
+{% endblock %}
+
+{% block header %}
+<header><h2>{% block title %}دخول{% endblock %}</h2></header>
+{% endblock%}
+
+{% block content %}
+<div class="div_form">
+
+    <form method="post" id="login_form">
+        <span>
+            <label for="password">كلمة المرور</label>
+            <input type="password" name="password" id="password" title="أدخل كلمة المرور" required dir="ltr">
+        </span>
+        <input type="submit" class="p_button" id="btn_login" value="دخول" title="اضغط لتسجيل الدخول">
+    </form>
+
+</div>
+
+<hr>
+
+<div class="div_form">
+    <form action="{{ url_for('query_based.search') }}" method="post" id="search_form">
+        <input type="text" name="text" id="text" title="أدخل كلمات للبحث">
+        <input type="submit" class="p_button" id="btn_search" value="بحث" title="اضغط لبدأ البحث">
+    </form>
+
+</div>
+
+{% endblock %}
+

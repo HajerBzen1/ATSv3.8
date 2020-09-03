@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}<header><h2>{% block title %}الملف الشخصي{% endblock %}</h2></header>{% endblock%}
+
+{% block nav_main %}
+<a class="a_button" href="{{ url_for('launcher.launch') }}" title="اضغط للعودة إلى التلاخيص المحفوظة">
+    <p class="p_button">عودة</p></a>
+{% endblock %}
+
+{% block content %}
+<div class="div_form">
+    <form action="{{ url_for('profile.profile_save') }}" method="post" id="login_form">
+        <span>
+            <label for="password">كلمة المرور الحالية</label>
+            <input type="password" name="password" id="password" title="أدخل كلمة المرور الحالية" required dir="ltr">
+        </span>
+
+        <span>
+            <label for="new_password">كلمة المرور الجديدة</label>
+            <input type="password" name="new_password" id="new_password" title="أدخل كلمة المرور الجديدة " dir="ltr">
+        </span>
+                <input type="submit" class="p_button" id="btn_login" value="حفظ" required title="اضغط لحفظ التغييرات">
+    </form>
+</div>
+{% endblock %}

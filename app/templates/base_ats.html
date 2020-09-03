@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" id="select_form" {% if new %}enctype="multipart/form-data" {% endif %}>
+        <header>
+            <h2>{% block title %}{% endblock %}</h2>
+            <select id="filename" name="filename"
+                    onchange="{% block select_onchange %}{% endblock %}"
+                    title="{% block select_title %}{% endblock %}">
+                {% if files %}
+                    {% for filename in files %}
+                        <option value="{{filename}}"
+                                {% if summary and filename== summary['filename']%}
+                                    selected="selected"
+                                {% endif %}>
+                            {{filename}}
+                        </option>
+                    {% endfor %}
+                {% endif %}
+            </select>
+
+            <input type="submit" class="p_button a_button" id="select_delete" value="مسح"
+                   title="{% block delete_title %}{% endblock %}"
+                   onclick="{% block delete_onclick %}{% endblock %}">
+
+            {% block others %}{% endblock %}
+
+            <div id="div_main">{% block nav_second %}{% endblock %}</div>
+        </header>
+
+        <div id="content">
+            <div id="original_box" dir="rtl" lang="ar">
+                <div style="width:calc(100% - 10px);"><h3>النص الأصلي</h3></div>
+
+                <div id="original_text"
+                     {% if not summary["original"] %}
+                        style="overflow: hidden;">
+                    {% else %}
+                        style="overflow: auto;">
+                    {% endif %}
+                    {% if summary %}
+                        {% if not summary["original"] %}
+                            <textarea name="content" id="input_content">
+                                {{ summary['content'] }}
+                            </textarea>
+                        {% else %}
+                            {% for i in summary["original"] %}
+                                {% set segment = summary["original"][i] %}
+                                <p id="{{i}}">
+                                    {% for sentence in segment %}&nbsp&nbsp&nbsp{{ sentence }}<br>{% endfor %}
+                                </p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div id="summary">
+                <div><h3>الملخص</h3></div>
+
+                <div id="ind_sum">
+                    <table id="ind_table" dir="rtl" lang="ar">
+                        {% if summary %}
+                            {% if summary["indicative"] %}
+                                {% set ind_sum = summary["indicative"] %}
+                                {% for d in ind_sum %}
+                                    <tr>
+                                        <th rowspan="{{ind_sum[d]|length}}">{{d}}</th>
+                                        <td>{{ind_sum[d][0]}}</td>
+                                    </tr>
+                                    {% for i in range(1,ind_sum[d]|length) %}
+                                        <tr>
+                                            <td>{{ind_sum[d][i]}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endif %}
+                    </table>
+                </div>
+
+                <div id="inf_sum">
+                    {% if summary%}
+                        {% if summary["informative"] %}
+                            {% for s in summary["informative"] %}
+                                {% if summary["informative"][s] %}
+                                    <p>
+                                        <a href="#{{s}}" title="اضغط لتحديد النص الأصلي لهذا الجزء من التلخيص"
+                                           onclick="highlight({{s}}, {{summary['informative']}})">
+                                            <img id="go_to_image"
+                                                 src="{{ url_for('static', filename='go_to.png') }}"
+                                                 alt="Click to see the original text."/></a>
+                                        {% for sentence in summary["informative"][s] %}
+                                            {{sentence}}<br>
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock%}
+
+

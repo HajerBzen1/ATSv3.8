@@ -1,0 +1,17 @@
+{% extends 'base_ats.html' %}
+
+{% block nav_main %}
+<a class="a_button" href="{{ url_for('profile.profile') }}">
+    <p class="p_button" title="اضغط لعرض الملف الشخصي للمستخدم">الملف الشخصي</p></a>
+<a class="a_button" href="{{ url_for('summarizer.launch_new') }}">
+    <p class="p_button" title="اضغط لبدء عملية تلخيص جديدة">جديد</p></a>
+{% endblock %}
+
+{% block title %}ملخصات{% endblock %}
+{% block select_onchange %}display_summary(){% endblock %}
+{% block select_title %}اضغط لاختيار تلخيص{% endblock %}
+{% block delete_title %}اضغط لمسح التلخيص المعروض{% endblock %}
+{% block delete_onclick %}delete_summary(){% endblock %}
+{% block others %}
+
+{% endblock %}

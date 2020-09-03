@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block header %}<header><h2>{% block title %}عبارات التقسيم{% endblock %}</h2></header>{% endblock%}
+
+
+{% block nav_main %}
+<a class="a_button" href="{{ url_for('summarizer.summarizer') }}" title="اضغط للعودة إلى عملية التلخيص">
+    <p class="p_button">عودة</p></a>
+{% endblock %}
+
+{% block content %}
+<div class="div_form">
+
+    <div id="row_box">
+        <div class="p_button a_button" id="add_box" onclick="add_param()" title="اضغط لإضافة إطار إدخال جديد">إضافة</div>
+
+        <label title="اضغط لحفظ التغييرات" id="save" class="p_button a_button" for="ok_btn">حفظ</label>
+        <a href="{{ url_for('summarizer.summarizer') }}" title="اضغط لالغاء التغييرات" class="a_button">
+            <p class="p_button">إلغاء</p></a>
+    </div>
+
+    <form action="{{ url_for('expressions.save') }}" method="post" id="param_form">
+        {% if expressions %}
+            {% for i in range(expressions|length) %}
+            <div class="text_box" dir="rtl" lang="ar">
+                {% set name=i|string %}
+                <input type="button" class="a_button p_button" onclick="clean({{name}})"
+                       value="X" title="اضغط لمسح محتوى الإطار">
+                <input type="text" name="{{name}}" id="{{name}}" class="input"
+                       value="{{ expressions[i] }}">
+            </div>
+            {% endfor %}
+        {% endif %}
+            <div class="text_box" id="add_param" dir="rtl" lang="ar">
+
+            </div>
+            <input type="submit" id="ok_btn" class="input">
+    </form>
+
+</div>
+{% endblock %}
