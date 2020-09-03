@@ -13,8 +13,6 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':
-        from app.database import init_database
-        init_database()
         username = 'admin'
         password = request.form['password']
         error = None
