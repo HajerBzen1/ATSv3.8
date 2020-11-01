@@ -26,7 +26,8 @@ def search():
             if summaries:
                 for summary in summaries:
                     qb_summary = summarize_query_based(summary, threshold=0.1, query=query)
-                    query_summaries.append(qb_summary)
+                    if qb_summary:
+                        query_summaries.append(qb_summary)
             else:
                 flash('لا يوجد ملخصات للبحث فيها!')
         else:
