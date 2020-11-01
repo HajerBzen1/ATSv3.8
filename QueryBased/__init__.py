@@ -27,7 +27,7 @@ def __get_summary(scored_sentences, threshold):
     threshold = math.ceil(threshold * len(scored_sentences))
     scored_sentences.sort(key=itemgetter(2), reverse=True)
     result = sorted(scored_sentences[:threshold], key=itemgetter(0), reverse=False)
-    result = ' '.join([r[1] for r in result])
+    result = ' '.join([r[1] for r in result if r[2] > 0])
     return result
 
 
@@ -51,7 +51,10 @@ def summarize_query_based(scored_sentences: list, threshold: float = 0.3, query:
         cos_sim_score = __get_cos_similarity(q_tmp, s_tmp)
 
         # Calculate sentence score.
-        sentence_score = scored_sentences[s][1] + cos_sim_score
+        if cos_sim_score > 0:
+            sentence_score = scored_sentences[s][1] * cos_sim_score
+        else:
+            sentence_score = 0
         result.append((s, scored_sentences[s][0], sentence_score))
 
     # Generate summary.
